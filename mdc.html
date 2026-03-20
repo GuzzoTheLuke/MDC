@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calcolatore Dose MDC in TC</title>
+    <title>Calcolatore Dose MdC in TC</title>
     <!-- Caricamento di Tailwind CSS per uno styling rapido e responsive --><script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Stile personalizzato generale per Light Mode */
@@ -74,7 +74,7 @@
 
     <div id="app-container" class="bg-white p-6 md:p-10 rounded-3xl shadow-3xl w-full max-w-lg transition-all duration-300">
         <h1 class="text-2xl md:text-3xl font-extrabold text-gray-800 mb-2 text-center whitespace-nowrap">
-            Calcolatore Dose MDC in TC
+            Calcolatore Dose MdC in TC
         </h1>
         <p class="text-sm text-gray-500 mb-8 text-center">
             Dosaggio Iodio | Formula di Boer (LBW)
@@ -158,7 +158,7 @@
 
             <!-- Concentrazione del MDC (mgI/ml) --><div>
                 <label for="concentrazione" class="block text-sm font-semibold text-gray-700 mb-1">
-                    Concentrazione MDC (mgI/ml):
+                    Concentrazione MdC (mgI/ml):
                 </label>
                 
                  <label for="doseTarget" class="block text-sm text-gray-700 mb-3">
@@ -204,7 +204,7 @@
                 <span id="risultato-massa-iodio" class="text-xl font-extrabold text-teal-600"></span>
             </div>
 
-            <!-- Risultato Critico: Volume MDC (Centrato e Ridotto per Armonia) --><div id="risultatoVolumeCard" class="flex justify-center items-center py-5 px-6 rounded-xl flex-nowrap border-2 transition-colors duration-300 gap-x-4">
+            <!-- Risultato Critico: Volume MdC (Centrato e Ridotto per Armonia) --><div id="risultatoVolumeCard" class="flex justify-center items-center py-5 px-6 rounded-xl flex-nowrap border-2 transition-colors duration-300 gap-x-4">
                 <span class="text-lg font-extrabold whitespace-nowrap transition-colors duration-300">Volume MDC:</span>
                 <span id="risultato-volume" class="text-2xl font-black whitespace-nowrap transition-colors duration-300"></span>
             </div>
@@ -404,7 +404,7 @@
 
             // Controllo Input Base
             if (isNaN(doseTarget) || doseTarget <= 0 || isNaN(concentrazione) || concentrazione <= 0) {
-                 erroreMsg.innerHTML = "Per favore, Dose Target e Concentrazione MDC devono essere valide (> 0).";
+                 erroreMsg.innerHTML = "Per favore, Dose Target e Concentrazione MdC devono essere valide (> 0).";
                  erroreMsg.classList.remove('hidden');
                  return;
             }
