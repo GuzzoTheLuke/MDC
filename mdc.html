@@ -257,6 +257,8 @@
     const peso = document.getElementById('peso').value.trim();
     const altezza = document.getElementById('altezza').value.trim();
 
+  
+            
     const bmi = calcolaBMI(peso, altezza);
 
     const bmiDisplay = document.getElementById('bmi-value');
@@ -384,8 +386,10 @@
         radioDonna.addEventListener('change', () => { updateGenderVisuals(); autoRecalculateIfPossible(); });
         
         // Listener per input di Peso e Altezza: ricalcola se la condizione di validità è soddisfatta
-        pesoInput.addEventListener('input', autoRecalculateIfPossible, aggiornaBMI);
-        altezzaInput.addEventListener('input', autoRecalculateIfPossible, aggiornaBMI);
+        pesoInput.addEventListener('input', autoRecalculateIfPossible);
+        altezzaInput.addEventListener('input', autoRecalculateIfPossible);
+        pesoInput.addEventListener('input', aggiornaBMI);
+        altezzaInput.addEventListener('input', aggiornaBMI);
 
 
         // Imposta il valore iniziale dello slider e dei pulsanti sesso
