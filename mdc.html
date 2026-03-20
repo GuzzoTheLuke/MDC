@@ -147,8 +147,14 @@
 
             <!-- Concentrazione del MDC (mgI/ml) --><div>
                 <label for="concentrazione" class="block text-sm font-semibold text-gray-700 mb-1">
-                    Concentrazione MDC (mgI/ml)
+                    Concentrazione MDC (mgI/ml):
                 </label>
+                
+                 <label for="doseTarget" class="block text-sm text-gray-700 mb-3">
+                    IOPAMIRO 370 -> TC 1 e TC 2 <br>
+                    OMNIPAQUE 350 -> TC PS <br>
+                </label>
+                
                 <select id="concentrazione" class="mt-1 block w-full rounded-xl border-gray-300 shadow-sm p-3 border bg-white focus:border-teal-500 focus:ring-teal-500 hover:border-teal-400 transition duration-150 text-gray-800" required>
                     <option value="400">400 mgI/ml</option>
                     <option value="370" selected>370 mgI/ml</option>
@@ -165,7 +171,11 @@
             CALCOLA
         </button> <br>
         <br>
-        <label class="testo"> Adattato e modificato da Luca Guzzetti </label>
+        <label class="block text-xs text-gray-700 tsxt-center"> 
+            Adattato e modificato da Luca Guzzetti <br>
+            Sviluppato da e BH <br>
+        
+        </label>
 
         <!-- Messaggio di Errore --><div id="errore-msg" class="mt-6 p-4 bg-red-100 border-l-4 border-red-600 text-red-800 rounded-lg hidden font-medium">
             <!-- Il contenuto dell'errore è inserito dinamicamente --></div>
