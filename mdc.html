@@ -384,8 +384,8 @@
         radioDonna.addEventListener('change', () => { updateGenderVisuals(); autoRecalculateIfPossible(); });
         
         // Listener per input di Peso e Altezza: ricalcola se la condizione di validità è soddisfatta
-        pesoInput.addEventListener('input', autoRecalculateIfPossible);
-        altezzaInput.addEventListener('input', autoRecalculateIfPossible);
+        pesoInput.addEventListener('input', autoRecalculateIfPossible, aggiornaBMI);
+        altezzaInput.addEventListener('input', autoRecalculateIfPossible, aggiornaBMI);
 
 
         // Imposta il valore iniziale dello slider e dei pulsanti sesso
