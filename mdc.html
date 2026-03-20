@@ -253,7 +253,20 @@
     return P / (H * H);
 }
 
-        
+        function aggiornaBMI() {
+    const peso = document.getElementById('peso').value.trim();
+    const altezza = document.getElementById('altezza').value.trim();
+
+    const bmi = calcolaBMI(peso, altezza);
+
+    const bmiDisplay = document.getElementById('bmi-value');
+
+    if (bmi !== null && isFinite(bmi)) {
+        bmiDisplay.textContent = bmi.toFixed(1);
+    } else {
+        bmiDisplay.textContent = '--';
+    }
+}
         
         // Riferimenti agli elementi chiave
         const doseTargetSlider = document.getElementById('doseTarget');
