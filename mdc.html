@@ -385,11 +385,21 @@
         radioUomo.addEventListener('change', () => { updateGenderVisuals(); autoRecalculateIfPossible(); });
         radioDonna.addEventListener('change', () => { updateGenderVisuals(); autoRecalculateIfPossible(); });
         
-        // Listener per input di Peso e Altezza: ricalcola se la condizione di validità è soddisfatta
+      /*  // Listener per input di Peso e Altezza: ricalcola se la condizione di validità è soddisfatta
         pesoInput.addEventListener('input', autoRecalculateIfPossible);
         altezzaInput.addEventListener('input', autoRecalculateIfPossible);
         pesoInput.addEventListener('input', aggiornaBMI);
-        altezzaInput.addEventListener('input', aggiornaBMI);
+        altezzaInput.addEventListener('input', aggiornaBMI);*/
+
+        pesoInput.addEventListener('input', () => {
+    aggiornaBMI();
+    autoRecalculateIfPossible();
+});
+
+altezzaInput.addEventListener('input', () => {
+    aggiornaBMI();
+    autoRecalculateIfPossible();
+});
 
 
         // Imposta il valore iniziale dello slider e dei pulsanti sesso
