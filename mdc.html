@@ -210,6 +210,7 @@
                 <span class="text-lg font-extrabold whitespace-nowrap transition-colors duration-300">Volume MdC:</span>
                 <span id="risultato-volume" class="text-2xl font-black whitespace-nowrap transition-colors duration-300"></span>
             </div>
+            <div id="controllo-volume" class="mt-2 text-sm font-semibold text-red-600"></div>
         </div>
     </div>
 
@@ -301,7 +302,7 @@
             categoriaDisplay.style.color = "red";
         }
 
-        // 🔥 aggiorna slider automaticamente
+       /* // 🔥 aggiorna slider automaticamente
         if (categoria === "Normopeso") {
             doseTargetSlider.value = 700;
         }
@@ -311,7 +312,7 @@
         else {
             doseTargetSlider.value = 700;
         }
-
+*/
         doseTargetValueDisplay.textContent = doseTargetSlider.value;
 
         autoRecalculateIfPossible();
@@ -321,6 +322,21 @@
         categoriaDisplay.textContent = '--';
     }
 }
+
+      function controlloVolume(volume, concentrazione) {
+    if (concentrazioneMDC == 370 && volume > 140) {
+        return "⚠️ Volume elevato per MdC 370 mgI/ml";
+    } 
+    else if (concentrazioneMDC == 350 && volume > 150) {
+        return "⚠️ Volume elevato per MdC 350 mgI/ml";
+    } 
+    else {
+        return "";
+    }
+}
+
+
+            
         // Riferimenti agli elementi chiave
         const doseTargetSlider = document.getElementById('doseTarget');
         const doseTargetValueDisplay = document.getElementById('doseTargetValue');
