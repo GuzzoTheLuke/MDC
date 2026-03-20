@@ -121,7 +121,7 @@
             </div>
              <br>
                     <label for="doseTarget" class="block text-sm font-semibold text-gray-700 mb-3">
-                    BMI: 
+                    BMI:  <span id="calcolaBMI" class="font-bold text-indigo-600">--</span>
                     </label>
         
                      <label for="doseTarget" class="block text-sm font-semibold text-gray-700 mb-3">
@@ -244,11 +244,14 @@
             return { volume: volumeMDC, massaIodio: massaIodio };
         }
 
-      //  function BMI(bmi, peso, altezza, result){
-      //      const P = parseFloat(peso);
-      //      const H = parseFloat(altezza);
-     //       return  P / H * H,
-     //   }
+     function calcolaBMI(peso, altezza) {
+    const P = parseFloat(peso);
+    const H = parseFloat(altezza) / 100; // cm → metri
+
+    if (isNaN(P) || isNaN(H) || H <= 0) return null;
+
+    return P / (H * H);
+}
 
         
         
@@ -422,11 +425,14 @@
 
             // 3. Calcolo Volume MDC (Risultato in mg)
             const { volume, massaIodio } = calcolaVolumeMDC(lbw, doseTarget, concentrazione);
+
+            //4. Calcolo BMI
+            
             
             // Conversione da mg a grammi (g) per la visualizzazione
             const massaIodioGrammi = massaIodio / 1000;
 
-            // 4. Visualizzazione Risultati
+            // 5. Visualizzazione Risultati
             document.getElementById('risultato-lbw').textContent = `${lbw.toFixed(1)} kg`; 
             document.getElementById('risultato-massa-iodio').textContent = `${massaIodioGrammi.toFixed(1)} gI`; 
             document.getElementById('risultato-volume').textContent = `${volume.toFixed(1)} ml`;
