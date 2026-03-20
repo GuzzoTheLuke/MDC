@@ -125,7 +125,7 @@
                     </label>
         
                      <label for="doseTarget" class="block text-sm font-semibold text-gray-700 mb-3">
-                    Il paziente è: 
+                    Il paziente è:  <span id="bmi-categoria" class="font-bold text-indigo-600">--</span>
                     </label>
         </div>
          
@@ -252,7 +252,6 @@
 
     return P / (H * H);
 }
-
         function aggiornaBMI() {
     const peso = document.getElementById('peso').value.trim();
     const altezza = document.getElementById('altezza').value.trim();
@@ -269,7 +268,58 @@
         bmiDisplay.textContent = '--';
     }
 }
-        
+
+        function categoriaBMI(bmi) {
+    if (bmi < 18.5) return "Sottopeso";
+    if (bmi < 25) return "Normopeso";
+    return "Obeso";
+}
+
+        function aggiornaBMIeDose() {
+    const peso = pesoInput.value.trim();
+    const altezza = altezzaInput.value.trim();
+
+    const bmi = calcolaBMI(peso, altezza);
+
+    const bmiDisplay = document.getElementById('calcolaBMI');
+    const categoriaDisplay = document.getElementById('categoriaBMI');
+
+    if (bmi !== null) {
+        const categoria = categoriaBMI(bmi);
+
+        // Mostra BMI
+        bmiDisplay.textContent = bmi.toFixed(1);
+
+        // Mostra categoria nella label separata
+        categoriaDisplay.textContent = categoria;
+          if (categoria === "Normopeso") {
+            categoriaDisplay.style.color = "green";
+        } else if (categoria === "Sottopeso") {
+            categoriaDisplay.style.color = "orange";
+        } else {
+            categoriaDisplay.style.color = "red";
+        }
+
+        // 🔥 aggiorna slider automaticamente
+        if (categoria === "Normopeso") {
+            doseTargetSlider.value = 700;
+        }
+        if (categoria === "Obeso"){
+            doseTargetSlider.value = 600;
+        }
+        else {
+            doseTargetSlider.value = 700;
+        }
+
+        doseTargetValueDisplay.textContent = doseTargetSlider.value;
+
+        autoRecalculateIfPossible();
+
+    } else {
+        bmiDisplay.textContent = '--';
+        categoriaDisplay.textContent = '--';
+    }
+}
         // Riferimenti agli elementi chiave
         const doseTargetSlider = document.getElementById('doseTarget');
         const doseTargetValueDisplay = document.getElementById('doseTargetValue');
@@ -394,11 +444,13 @@
         pesoInput.addEventListener('input', () => {
     aggiornaBMI();
     autoRecalculateIfPossible();
+    aggiornaBMIeDose();
 });
 
 altezzaInput.addEventListener('input', () => {
     aggiornaBMI();
     autoRecalculateIfPossible();
+    aggiornaBMIeDose();
 });
 
 
