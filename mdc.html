@@ -462,7 +462,7 @@ altezzaInput.addEventListener('input', () => {
             // 5. Visualizzazione Risultati
             document.getElementById('risultato-lbw').textContent = `${lbw.toFixed(1)} kg`; 
             document.getElementById('risultato-massa-iodio').textContent = `${massaIodioGrammi.toFixed(1)} gI`; 
-            document.getElementById('risultato-volume').textContent = `${volume.toFixed(1)} ml`;
+            document.getElementById('risultato-volume').textContent = `${volume.toFixed(0)} ml`;
             
             risultatiContainer.classList.remove('hidden');
         });
